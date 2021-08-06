@@ -1,37 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Order summary card</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Order summary card</title>
 
-  Order Summary
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      /* - Mobile: 375px
+- Desktop: 1440px */
+      :root {
+        /* primary color */
+        --primary: hsl(225, 100%, 94%);
+        --primary-light: hsl(225, 100%, 96%);
+        --primary-dark: hsl(245, 75%, 52%);
+        --link: hsl(245, 75%, 40%);
+        --link-active: #766cf1;
 
-  You can now listen to millions of songs, audiobooks, and podcasts on any 
-  device anywhere you like!
+        /* neutral color */
+        --surface: hsl(225, 100%, 98%);
+        --neutral-light: hsl(224, 23%, 55%);
+        --neutral-dark: hsl(223, 47%, 23%);
+        --shadow-dark: hsl(223, 47%, 90%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        width: 100%;
+        min-height: 100vh;
+        font-family: "Red Hat Display", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-around;
+        background: url("./images/pattern-background-desktop.svg");
+        background-color: var(--primary);
+        background-repeat: no-repeat;
+      }
+      .card {
+        min-width: 300px;
+        max-width: 350px;
+        width: 50vw;
+        max-height: 500px;
+        /* height: 90vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 16px;
+        background-color: var(--surface);
+        margin: 10px 0;
+      }
+      .card__hero {
+        border-radius: 16px 16px 0 0;
+        width: 100%;
+      }
+      .card__content {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 20px;
+        text-align: center;
+      }
+      .card__content h1 {
+        color: var(--neutral-dark);
+      }
+      .card__content p {
+        font-weight: 500;
+        color: gray;
+      }
+      .card__plan {
+        display: flex;
+        text-align: unset;
+        align-items: center;
+        border-radius: 6px;
+        background-color: var(--primary-light);
+        margin: 15px 0;
+        font-weight: 700;
+        padding: 20px;
+      }
+      .card__plan img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
 
-  Annual Plan
-  $59.99/year
+      .card__plan span {
+        display: block;
+        color: var(--neutral-dark);
+        font-weight: 800;
+      }
+      .card__plan a {
+        text-decoration: none;
+        margin-left: auto;
+        color: var(--link);
+      }
+      .card__plan a:hover {
+        color: var(--link-active);
+        cursor: pointer;
+      }
+      .btn {
+        border: none;
+        border-radius: 6px;
+        padding: 10px 30px;
+        color: var(--neutral-dark);
+        font-weight: 800;
+        background-color: var(--surface);
+        z-index: 1;
+      }
+      .btn:hover {
+        color: var(--link-active);
+      }
+      .btn.btn--primary {
+        border: none;
+        border-radius: 6px;
+        padding: 10px 30px;
+        color: var(--surface);
+        background-color: var(--primary-dark);
+        box-shadow: 0 10px 10px var(--shadow-dark);
+        z-index: 2;
+      }
+      .btn.btn--primary:hover {
+        background-color: var(--link-active);
+        cursor: pointer;
+      }
+      .attribution {
+        /* position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%); */
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img class="card__hero" src="./images/illustration-hero.svg" alt="hero" />
 
-  Change
+      <div class="card__content">
+        <h1>Order Summary</h1>
+        <p>
+          You can now listen to millions of songs, audiobooks, and podcasts on
+          any device anywhere you like!
+        </p>
+        <div class="card__plan">
+          <img src="./images/icon-music.svg" alt="music icon" />
+          <p><span>Annual Plan</span> $59.99/year</p>
+          <a href="#"> Change</a>
+        </div>
+        <button class="btn btn--primary">Proceed Payment</button>
+        <button class="btn">Cancel Order</button>
+      </div>
+    </div>
 
-  Proceed to Payment
-  Cancel Order
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Liping Yin</a>.
+    </div>
+  </body>
 </html>
